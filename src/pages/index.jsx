@@ -1,15 +1,16 @@
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { Grid,ListItemButton, ListItemText, MenuItem, MenuList,ListItemIcon, Icon, Typography, IconButton, Chip, Stack } from '@mui/material';
-import { Add, ArrowForward, Book, BookOutlined, HomeOutlined, PlusOne, Search } from '@mui/icons-material';
+import { Grid,ListItemButton, ListItemText, MenuItem, MenuList,ListItemIcon, Icon, Typography, IconButton, Chip, Stack, Autocomplete, TextField, FormControl, InputAdornment } from '@mui/material';
+import { AccountCircle, Add, ArrowForward, Book, BookOutlined, HomeOutlined, PlusOne, Search, } from '@mui/icons-material';
 
 
 export default function Index() {
   const myAlert = () => {
     alert("Hola mundo");
   }
+  const options = [{title:"these days", artist:"foo fighters",year:2011,album:"wasting light"}];
   return (
-      <Box sx={{background:"#000000"}}>
+      <Box sx={{background:"#000000", height:"100vh"}}>
         <Grid container p={0} py={1}>
           <Grid item sm={3} >
             <MenuList sx={{background:"#262626", borderRadius:2}}>
@@ -64,7 +65,18 @@ export default function Index() {
                   <Chip label={'Artistas'} variant={"body2"} sx={{color:"#FFF", fontWeight:"600",background:"#303030" ,fontSize:"11px"}} onClick={() => alert("Hola mundo")}/>
                   <Chip label={'Albumes'} variant={"body2"} sx={{color:"#FFF", fontWeight:"600",background:"#303030" ,fontSize:"11px"}} onClick={() => alert("Hola mundo")}/>
                 </Stack>
-                
+                <Stack direction={'row'} spacing={1} sx={{mt:1}} alignItems={'end'}>
+                    <Search fontSize='medium' sx={{color:"#C8C8C8"}}/>
+                    <TextField 
+                      id='searchSong'
+                      label='search'
+                      variant='standard'
+                      color='primary'
+                      sx={{
+                        '.MuiFormLabel-root':{color:"#C8C8C8"}
+                      }}
+                    />
+                </Stack>
             </Box>
 
           </Grid>
